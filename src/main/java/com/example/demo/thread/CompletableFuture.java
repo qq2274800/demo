@@ -1,4 +1,4 @@
-package com.example.thread;
+package com.example.demo.thread;
 
 import java.util.*;
 import java.util.concurrent.ExecutorService;
