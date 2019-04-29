@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class Test {
 
     public static void main(String[] args) {
+        // 测试
         List<String> list = new ArrayList<>();
         list.add("chengdu");
         list.add("chongqing");
