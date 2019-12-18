@@ -31,15 +31,15 @@ public class CompletableFutureTests {
         // 全流式处理转换成CompletableFuture[]+组装成一个无返回值CompletableFuture，join等待执行完毕。返回结果whenComplete获取
         CompletableFuture[] cfs = taskList.stream()
                 .map(integer -> CompletableFuture.supplyAsync(() -> calc(integer), executorService)
-                        .thenApply(h->Integer.toString(h))
+                        .thenApply(h -> Integer.toString(h))
                         .whenComplete((s, e) -> {
-                            System.out.println("任务"+s+"完成!result="+s+"，异常 e="+e+","+new Date());
+                            System.out.println("任务" + s + "完成!result=" + s + "，异常 e=" + e + "," + new Date());
                             list.add(s);
                         })
                 ).toArray(CompletableFuture[]::new);
         // 封装后无返回值，必须自己whenComplete()获取
         CompletableFuture.allOf(cfs).join();
-        System.out.println("list="+list+",耗时="+(System.currentTimeMillis()-start));
+        System.out.println("list=" + list + ",耗时=" + (System.currentTimeMillis() - start));
 
     }
 

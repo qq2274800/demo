@@ -14,26 +14,27 @@ public class AsyncTest {
     /**
      * 1、无返回值
      * 2、返回值Future<String>，需监听
+     *
      * @param num
      */
     @Async
-    public void asyncGet (long num) {
+    public void asyncGet(long num) {
         long a = System.currentTimeMillis();
         System.out.println();
-        String str = "";
-        for (long i = 0 ; i < 100000; i++) {
-            str += "a";
+        StringBuilder sb = new StringBuilder();
+        for (long i = 0; i < 100000; i++) {
+            sb.append("a");
             num++;
         }
         long b = System.currentTimeMillis();
-        System.out.println("cost " + (b-a) + " ms");
+        System.out.println("cost " + (b - a) + " ms");
     }
 
     public static void main(String[] args) {
         long num = 0l;
         System.out.println("a");
         AsyncTest t = new AsyncTest();
-//        num = t.asyncGet(num);
+        t.asyncGet(num);
         System.out.println("b");
         System.out.println(num);
         System.out.println("c");

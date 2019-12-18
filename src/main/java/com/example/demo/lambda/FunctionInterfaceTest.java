@@ -1,14 +1,12 @@
 package com.example.demo.lambda;
 
-import org.junit.Test;
-
 /**
  * 函数接口测试
  * Created by Kevin on 2018/2/17.
  */
 public class FunctionInterfaceTest {
 
-    @Test
+//    @Test
     public void testLambda() {
 //        func(new FunctionInterface() {
 //            @Override
